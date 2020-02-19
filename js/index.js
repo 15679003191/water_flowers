@@ -103,7 +103,7 @@
       center_font_color: '#555962',
       cur_score_circle_color: '#555962',
       center_offset: {
-        x: 0,
+        x: -20,
         y: 0
       },
       center_num_font_family: 'HanHei SC, PingFang SC, Helvetica Neue Thin, Helvetica, STHeitiSC-Light, Arial, sans-serif',
@@ -116,7 +116,7 @@
       circle_offset: 0,
       center_text_unit: '分',
       center_text_offset: {
-        x: 16,
+        x: 4,
         y: 8
       }
     };
@@ -466,11 +466,11 @@ gradientColor.prototype.colorHex = function(rgb){
         if(checkbox.checked){
             console.log("已经选中");
             checkbox.checked = false;
-            mqttX.sendMessage('ctrl', {"switch": "ON"})
+            mqttX.sendMessage('water_flowers/ctrl', {"switch": "ON"})
         }else{
             console.log("没有选中");
             checkbox.checked = true;
-            mqttX.sendMessage('ctrl', {"switch": "OFF"})
+            mqttX.sendMessage('water_flowers/ctrl', {"switch": "OFF"})
         }
     }
 })(".swich");
@@ -487,10 +487,11 @@ var gauge1 = new Gauge({
   "ticks_groups_begin": 0,
   "total_degrees": 250,
   "total_tick": 101,
-  "tick_color": "#666",
+  // "tick_color": "#666",
+  "tick_color": "#fff",
   "num_font_size": 18,
   "percent": 0,
-  "center_font_size": 172,
+  "center_font_size": 60, // 温度仪表盘内刻度的字体大小
   on_color_gradient: [
     {
       color: "#9ED110",
@@ -534,9 +535,9 @@ var gauge1 = new Gauge({
     }
   ],
   animation_duration: 2000,
-  tick_on_color: '#f1594e',
+  tick_on_color: '#ff5e52',
   cur_score_circle_color: '#ff5e52',
-  center_font_color: '#a0a0a0',
+  center_font_color: '#ff5e52',
   center_text_unit: '°C',
   "canvas": my_canvas_obj1
 })
@@ -549,10 +550,11 @@ var gauge2 = new Gauge({
   "ticks_groups_begin": 0,
   "total_degrees": 250,
   "total_tick": 101,
-  "tick_color": "#666",
+  // "tick_color": "#666",
+  "tick_color": "#fff",
   "num_font_size": 18,
   "percent": 0,
-  "center_font_size": 172,
+  "center_font_size": 60, // 湿度仪表盘内字体大小
   tick_on_color: '#f1594e',
   cur_score_circle_color: '#ff5e52',
   center_font_color: '#ff5e52',
@@ -570,7 +572,7 @@ mqttX.init({
 	port:8083,
 	success:function(){
 		console.log("mqttx连接成功");
-		mqttX.subscribe('web_data');
+		mqttX.subscribe('water_flowers/web_data');
 	},
 	error:function(){
 		console.log("mqttx连接失败");

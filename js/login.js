@@ -9,7 +9,7 @@ function checkForm(){
         for(index in pwds){
             if(pwds[index] == pwd.value){
                 console.log("pwd right!");
-                return true;
+                window.location.href="./index.html";
             }
         }
     }

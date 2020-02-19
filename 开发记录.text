@@ -23,6 +23,6 @@
   (4)火狐浏览器打开logs信息: 记得把控制台右侧的Persist Logs 打钩
 2. web端使用mqtt(见印象笔记)
 3. 设置好主题,调通设备端上传数据到web端:
-   (1). 设备端上传到web端: 设备端发送主题:web_data, 消息: { "temper": 30, "humi": 30, "alarm":0},
+   (1). 设备端上传到web端: 设备端发送主题:water_flowers/web_data, 消息: { "temper": 30, "humi": 30, "alarm":0},
         web端订阅这个主题,然后解析,提取相应的数据
-   (2). web端控制设备端: 设备端订阅主题:ctrl web端发送消息: 开:{"switch": "ON"} 关:{"switch": "OFF"}
+   (2). web端控制设备端: 设备端订阅主题:water_flowers/ctrl web端发送消息: 开:{"switch": "ON"} 关:{"switch": "OFF"}

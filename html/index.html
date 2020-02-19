@@ -17,17 +17,35 @@
 
 </head>
 <body>
-    <image id="alarm" src="../image/alarm_green.png"></image>
-    <div class="swich">
-        <input type="checkbox" value="" name="" checked="0"/>
-        <div class="box">
-            <span></span>
-        </div>
+    <div class="header">
+        <p>绿植管理系统</p>
+        <a href="./login.html" title="退出">退出</a>
     </div>
-   <!--<div style="height:20px;background: linear-gradient(to right, #9ED110, #50B517, #8adec2, #08d9fb, #9f49ac, #f10cab, #FF3BA7, #FF5800, #FF8100, #FEAC00, #FFCC00, #EDE604)"></div>-->
-    <div class="container">
-        <canvas width=510 height=510 id="gauge1"></canvas>
-        <canvas width=510 height=510 id="gauge2"></canvas>
+    <div class="wrap">
+        <div class="row-container">
+            <div class="row-content">
+                <image id="alarm" src="../image/alarm_green.png"></image>
+            </div>
+            <div class="swich row-content">
+                <input type="checkbox" value="" name="" checked="0"/>
+                <span class="tip">水泵开关：</span>
+                <div class="box">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+    <!--<div style="height:20px;background: linear-gradient(to right, #9ED110, #50B517, #8adec2, #08d9fb, #9f49ac, #f10cab, #FF3BA7, #FF5800, #FF8100, #FEAC00, #FFCC00, #EDE604)"></div>-->
+        <div class="row-container">
+            <div class="row-content graph">
+                <span>温度</span>
+                <canvas width=300 height=300 id="gauge1"></canvas>
+            </div>
+            <div class="row-content graph">
+                <span>湿度</span>
+                <canvas width=300 height=300 id="gauge2"></canvas>
+            </div>
+        </div>
     </div>
     <script src="../js/index.js"></script>
 </body>
