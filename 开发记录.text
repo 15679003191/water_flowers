@@ -1,0 +1,28 @@
+1. form表单提交功能:
+  (1). 在html中当from标签的onsubmit属性指定表单提交的js函数, 当点击提交后,跳转到指定函数
+  (2). html引用js文件的方法: 在head中引用, src为js的路径,可以是相对路径也可以是绝对路径
+        <script src="../js/index.js"></script>
+  html表单部分代码:
+  <form class="form-signin" action='' method='GET' onsubmit='checkForm()'>
+    <h2 class="form-signin-heading">欢迎登录</h2>
+    <label for="inputEmail" class="sr-only">账号</label>
+    <input type="number" id="inputEmail" class="form-control" placeholder="账号" required autofocus>
+    <label for="inputPassword" class="sr-only">,密码</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="密码" required>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+  </form>
+  (3). js文件中处理表单信息
+        通过document.getElementById()或者document.getElementByClassName()获取标签信息
+    返回值的value属性为输入的值.
+  js部分代码:
+  function checkForm(){
+        var count= document.getElementById('inputEmail');
+        console.log(count.value);
+        return true;
+    }
+  (4)火狐浏览器打开logs信息: 记得把控制台右侧的Persist Logs 打钩
+2. web端使用mqtt(见印象笔记)
+3. 设置好主题,调通设备端上传数据到web端:
+   (1). 设备端上传到web端: 设备端发送主题:web_data, 消息: { "temper": 30, "humi": 30, "alarm":0},
+        web端订阅这个主题,然后解析,提取相应的数据
+   (2). web端控制设备端: 设备端订阅主题:ctrl web端发送消息: 开:{"switch": "ON"} 关:{"switch": "OFF"}
